@@ -2,20 +2,23 @@
   "name": "ssh-deploy",
   "version": "2.1.0",
   "description": "This GitHub Action deploys specific directory from `GITHUB_WORKSPACE` to a folder on a server via rsync over ssh.",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "dependencies": {
+    "@actions/core": "^1.2.4",
     "command-exists": "1.2.8",
     "node-cmd": "3.0.0",
     "rsyncwrapper": "3.0.1"
   },
   "devDependencies": {
+    "@types/node": "^14.0.13",
     "@zeit/ncc": "^0.20.5",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2"
+    "eslint-plugin-import": "^2.20.2",
+    "tsup": "^1.4.23"
   },
   "scripts": {
-    "build": "npm run lint && ncc build ./src/index.js -o dist",
+    "build": "tsup --bundle ./src/index.ts",
     "lint": "eslint ./src/index.js",
     "lint:fix": "eslint ./src/index.js --fix"
   },
