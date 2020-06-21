@@ -14,11 +14,10 @@
     "@zeit/ncc": "^0.20.5",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-base": "^14.1.0",
-    "eslint-plugin-import": "^2.20.2",
-    "tsup": "^1.4.23"
+    "eslint-plugin-import": "^2.20.2"
   },
   "scripts": {
-    "build": "tsup --bundle ./src/index.ts",
+    "build": "ncc build ./src/index.ts -o dist",
     "lint": "eslint ./src/index.js",
     "lint:fix": "eslint ./src/index.js --fix"
   },

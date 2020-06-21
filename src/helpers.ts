@@ -1,5 +1,5 @@
 import { existsSync, mkdirSync, writeFileSync } from 'fs';
-import core from '@actions/core';
+import * as core from '@actions/core';
 
 const {
   GITHUB_WORKSPACE

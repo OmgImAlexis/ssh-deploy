@@ -1,6 +1,6 @@
-import path from 'path';
+import * as path from 'path';
 import { promisify } from 'util';
-import core from '@actions/core';
+import * as core from '@actions/core';
 import nodeRsync from 'rsyncwrapper';
 import { ensureRsyncIsInstalled, validateInputs } from './rsync-cli';
 import { addSshKey } from './ssh-key';
