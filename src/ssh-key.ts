@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { writeFileSync } from 'fs';
-import core from '@actions/core';
+import * as core from '@actions/core';
 import { validateDir, validateFile } from './helpers';
 
 const {
