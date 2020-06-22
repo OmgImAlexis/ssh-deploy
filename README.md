@@ -19,7 +19,7 @@ The public key part should be added to the `authorized_keys` file on the server 
 
 The keys should be generated using the PEM format. You can use this command
 
-```
+```bash
 ssh-keygen -m PEM -t rsa -b 4096
 ```
 
@@ -49,7 +49,7 @@ The target directory
 
 # Usage
 
-```
+```yaml
   - name: Deploy to Staging server
     uses: easingthemes/ssh-deploy@v2.0.7
     env:
@@ -63,7 +63,7 @@ The target directory
 
 # Example usage in workflow
 
-```
+```yaml
 name: Node CI
 
 on: [push]
