@@ -17,7 +17,7 @@
     "eslint-plugin-import": "^2.20.2"
   },
   "scripts": {
-    "build": "ncc build ./src/index.ts -o dist",
+    "build": "ncc build ./src/index.ts -o dist --minify",
     "lint": "eslint ./src/index.js",
     "lint:fix": "eslint ./src/index.js --fix"
   },

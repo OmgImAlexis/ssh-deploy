@@ -6,18 +6,19 @@ const {
 } = process.env;
 
 export const validateDir = (dir: string) => {
-  if (!existsSync(dir)) {
-    core.info(`[SSH] Creating ${dir} dir in ${GITHUB_WORKSPACE}`);
-    mkdirSync(dir);
-    core.info('✅ [SSH] dir created.');
-  } else {
-    core.info(`[SSH] ${dir} dir exist`);
+  if (existsSync(dir)) {
+    core.info(`[SSH] ${dir} dir exists.`);
+    return;
   }
+
+  core.info(`[SSH] Creating ${dir} dir in ${GITHUB_WORKSPACE}`);
+  mkdirSync(dir);
+  core.info('✅ [SSH] dir created.');
 };
 
 export const validateFile = (filePath: string) => {
   if (existsSync(filePath)) {
-    core.error(`[SSH] ${filePath} file exist`);
+    core.error(`[SSH] ${filePath} file exists.`);
     return;
   }
 
