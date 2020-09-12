@@ -14,7 +14,7 @@ export const runRsync = async ({ privateKey, port, src, dest, args }) => {
   core.info(`[Rsync] Starting Rsync Action: ${src} to ${dest}`);
 
   return rsync({ src, dest, args, privateKey, port, ...defaultOptions }).catch(error => {
-    core.setFailed('⚠️ [Rsync] command error: \n${error.message}\n${error.stack}');
+    core.setFailed(`⚠️ [Rsync] command error: \n${error.message}\n${error.stack}`);
     process.exit();
   });
 };
