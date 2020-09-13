@@ -20,9 +20,12 @@ const run = async () => {
 
   validateInputs({ SSH_PRIVATE_KEY, REMOTE_HOST, REMOTE_USER });
 
+  const src = SOURCE.startsWith('/') ? SOURCE : path.join(GITHUB_WORKSPACE, SOURCE || '');
+  const dest = TARGET || `/home/${REMOTE_USER}/`;
+
   return sshDeploy({
-    src: path.join(GITHUB_WORKSPACE, SOURCE || ''),
-    dest: TARGET || `/home/${REMOTE_USER}/`,
+    src,
+    dest,
     args: ARGS ? [ARGS] : ['-rltgoDzvO'],
     host: REMOTE_HOST,
     port: REMOTE_PORT || '22',
