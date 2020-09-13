@@ -8,7 +8,7 @@ const runCommand = promisify(nodeCmd);
 export const ensureRsyncIsInstalled = async () => {
   const rsyncCli = commandExists('rsync');
   if (!rsyncCli) {
-    await runCommand('sudo apt-get --no-install-recommends install rsync').catch(error => {
+    await runCommand('sudo apt-get --no-install-recommends install rsync').catch((error: NodeJS.ErrnoException) => {
       core.setFailed(`⚠️ [CLI] Rsync installation failed. Aborting ...\n${error.message}`);
       process.exit();
     });

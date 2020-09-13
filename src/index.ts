@@ -20,7 +20,8 @@ const run = async () => {
 
   validateInputs({ SSH_PRIVATE_KEY, REMOTE_HOST, REMOTE_USER });
 
-  const src = SOURCE.startsWith('/') ? SOURCE : path.join(GITHUB_WORKSPACE, SOURCE || '');
+  const relativeSource = path.join(GITHUB_WORKSPACE, SOURCE || '');
+  const src = SOURCE ? (SOURCE.startsWith('/') ? SOURCE : relativeSource) : relativeSource;
   const dest = TARGET || `/home/${REMOTE_USER}/`;
 
   return sshDeploy({

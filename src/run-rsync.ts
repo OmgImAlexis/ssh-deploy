@@ -10,7 +10,15 @@ const defaultOptions = {
   recursive: true
 };
 
-export const runRsync = async ({ privateKey, port, src, dest, args }) => {
+interface Options {
+  privateKey: string;
+  port: string;
+  src: string;
+  dest: string;
+  args: string[];
+}
+
+export const runRsync = async ({ privateKey, port, src, dest, args }: Options) => {
   core.info(`[Rsync] Starting Rsync Action: ${src} to ${dest}`);
 
   return rsync({ src, dest, args, privateKey, port, ...defaultOptions }).catch(error => {
